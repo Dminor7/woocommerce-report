@@ -28,7 +28,7 @@ def get_endpoint(endpoint, page):
     return ENDPOINTS[endpoint].format(page)
 
 def gen_request(url):
-    wcapi = API(**CONFIG)
+    wcapi = API(**CONFIG,timeout=30)
     resp = wcapi.get(url)
     resp.raise_for_status()
     return resp.json()
